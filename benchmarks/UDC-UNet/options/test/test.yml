@@ -1,0 +1,61 @@
+name: UDCUNet_UDC-VIT-Test
+model_type: UDCModel
+num_gpu: 4  # set num_gpu: 0 for cpu mode
+manual_seed: 0
+scale: 1
+
+datasets:
+  test_1:
+    name: UDC-VIT
+    type: PairedImgPSFNpyTestDataset
+    lq_map_type: norm
+    gt_map_type: norm
+    lq_map_range: 255. 
+    gt_map_range: 255. 
+    io_backend:
+      type: npy
+
+    frame_num: 180 
+    folders:
+      rot_5:
+        dataroot_lq: UDC-VIT/test/Input 
+        dataroot_gt: UDC-VIT/test/GT 
+
+        meta_info_file: meta-info-files/test-metainfo.txt
+
+
+# network structures
+network_g:
+  type: UDCUNet
+  nf: 32
+  in_nc: 3 
+  out_nc: 3 
+  depths: [2,2,2,8,2,2,2]
+  DyK_size: 3
+
+# path
+path:
+  pretrain_network_g: ../checkpoints/UDC-UNet/net_g_latest.pth 
+  strict_load_g: true
+  param_key_g: 'params_ema'
+
+# validation settings
+val:
+  save_img: true
+  save_npy: false
+  dng_info: background.dng
+  max_pxl: 255. 
+  clamp:
+    min: 0.
+    max: 1.
+  suffix: ~
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false

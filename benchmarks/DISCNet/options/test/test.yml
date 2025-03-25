@@ -1,0 +1,63 @@
+name: DISCNet_UDC-VIT 
+model_type: PSFResModel
+num_gpu: 4
+manual_seed: 0
+scale: 1
+
+datasets:
+  test_1:
+    name: VIT4-test 
+    type: PairedImgPSFNpyTestDataset
+    lq_map_type: norm
+    gt_map_type: norm
+    lq_map_range: 255. 
+    gt_map_range: 255. 
+    io_backend:
+      type: npy
+    folders:
+      rot_5:
+        dataroot_lq: UDC-VIT/test/Input 
+        dataroot_gt: UDC-VIT/test/GT
+        meta_info_file: meta-info-files/test-metainfo.txt
+        psf_path: sit-train-psf.npy
+  
+    num_frame: 5 
+    frame_num: 180 
+    interval_list: [1]
+
+
+network_g:
+  type: DISCNet
+  in_nc: 3
+  out_nc: 3
+  nf: 32
+  ns: 4
+  multi_scale: true
+  kernel_cond: img-psf
+  psf_nc: 5
+  kpn_sz: 5
+
+# path
+path:
+  pretrain_model_g: ../checkpoints/DISCNet/net_g_980000.pth 
+  strict_load: true
+
+# validation settings
+val:
+  save_img: true
+  save_npy: false 
+  dng_info: background.dng
+  max_pxl: 255. 
+  clamp:
+    min: 0.
+    max: 1.
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 0
+      test_y_channel: false
+    ssim:
+      type: calculate_ssim
+      crop_border: 0
+      test_y_channel: false

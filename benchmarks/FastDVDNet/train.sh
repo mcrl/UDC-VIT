@@ -1,0 +1,1 @@
+python train_fastdvdnet_4vit.py --noise_ival 0 0 --val_noiseL 0 --epochs 400 --milestone 250 300 --patch_size 256 --patch_size_val 256 --batch_size 96 --log_dir net  --save_every_epochs 1  --temp_patch_size 5   --trainset_dir UDC-VIT_npy/training --valset_dir UDC-VIT_npy/validation #--resume_training
