@@ -47,6 +47,19 @@ The dataset's annotation and distribution are as follows. The parenthesis beside
 <img src="./assets/UDC-VIT_statistics.png" width=100%>
 
 
+# Citation
+
+   If you find our repository useful for your research, please consider citing our paper:
+
+   ```bibtex
+   @article{ahn2025udc,
+      author={Ahn, Kyusu and Kim, JiSoo and Lee, Sangik and Lee, HyunGyu and Ko, Byeonghyun and Park, Chanwoo and Lee, Jaejin},
+      title={UDC-VIT: A Real-World Video Dataset for Under-Display Cameras},
+      journal={arXiv preprint arXiv:2501.18545},
+      year={2025}
+   }
+   ```
+
 # Licences
 
 Copyright (c) 2025 Thunder Research Group at Seoul National University.
