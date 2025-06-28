@@ -3,7 +3,11 @@
 This repository contains the dataset and benchmark DNN models of the following paper.
 
 > Kyusu Ahn, JiSoo Kim, Sangik Lee, HyunGyu Lee, Byeonghyun Ko, Chanwoo Park, and Jaejin Lee. <br>
-**UDC-VIT: A Real-World Video Dataset for Under-Display Cameras**, arXiv preprint arXiv:2501.18545 (2025). <br>
+**UDC-VIT: A Real-World Video Dataset for Under-Display Cameras**. <br>
+In Proceedings of the IEEE/CVF International Conference on Computer Vision, Honolulu, Hawai’i, USA, October 2025. To appear. <br>
+
+> Kyusu Ahn, JiSoo Kim, Sangik Lee, HyunGyu Lee, Byeonghyun Ko, Chanwoo Park, and Jaejin Lee. <br>
+**UDC-VIT: A Real-World Video Dataset for Under-Display Cameras**. arXiv preprint arXiv:2501.18545 (2025). <br>
 
 [[Paper](https://arxiv.org/abs/2501.18545)] [[Project site](https://kyusuahn.github.io/UDC-VIT.github.io/)]
 
@@ -50,6 +54,17 @@ The dataset's annotation and distribution are as follows. The parenthesis beside
 # Citation
 
    If you find our repository useful for your research, please consider citing our paper:
+
+   ```bibtex
+   @article{ahn2025udc,
+      author={Ahn, Kyusu and Kim, JiSoo and Lee, Sangik and Lee, HyunGyu and Ko, Byeonghyun and Park, Chanwoo and Lee, Jaejin},
+      title={UDC-VIT: A Real-World Video Dataset for Under-Display Cameras},
+      booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+      year={2025}
+   }
+   ```
+
+   or
 
    ```bibtex
    @article{ahn2025udc,
